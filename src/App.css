@@ -16,6 +16,13 @@
   border-color: #e5e7eb;
 }
 
+* {
+  --unit : 0.25rem;
+  --color-primary : rgba(75, 0, 130, var(--text-opacity));
+  --semi-bold : 500;
+  --text-opacity : 1;
+}
+
 main {
   height: 100vh;
   display: flex;
