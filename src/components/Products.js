@@ -2,7 +2,7 @@ import Product from './Product';
 import './Products.css';
 import { useEffect, useState } from 'react';
 
-const Products = () => {
+const Products = ({cartData, setCartData}) => {
     const [productsList, setProductList] = useState([]);
 
     async function fetchProducts() {
@@ -21,11 +21,10 @@ const Products = () => {
         <ul>
             {productsList.map((product) => {
                 return <Product
+                    cartData={cartData}
+                    setCartData={setCartData}
                     key={product.ProductId}
-                    ProductName={product.ProductName}
-                    Price={product.Price}
-                    Description={product.Description}
-                    Image={product.Image}
+                    {...product}
                 />;
             })}
         </ul>
