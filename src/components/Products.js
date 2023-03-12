@@ -5,8 +5,9 @@ import { useEffect, useState } from 'react';
 const Products = ({cartData, setCartData}) => {
     const [productsList, setProductList] = useState([]);
 
+
     async function fetchProducts() {
-        let res = await fetch('https://api.npoint.io/0d839dd6ac2b4e891bf4');
+        let res = await fetch('http://192.168.85.54:8000/products/json');
 
         let data = await res.json();
         setProductList(data);

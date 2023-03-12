@@ -1,6 +1,12 @@
 import './Product.css';
 
 const Product = (props) => {
+    const addProduct = () => {
+        let cartData = props.cartData;
+        if(cartData[props.ProductId]) cartData[props.ProductId].qty++;
+        else cartData[props.ProductId] = {qty : 1};
+        props.setCartData({...cartData});
+    };
     return <li>
     <div>
         <img
@@ -20,12 +26,7 @@ const Product = (props) => {
             }}
         >
             <svg
-                onClick={() => {
-                    let cartData = props.cartData;
-                    if(cartData[props.ProductId]) cartData[props.ProductId].qty++;
-                    else cartData[props.ProductId] = {qty : 1};
-                    props.setCartData({...cartData});
-                }}
+                onClick={addProduct}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
